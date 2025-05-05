@@ -22,13 +22,11 @@
     <Grid Margin="20">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel>
-                <!-- Főcím -->
                 <Border Background="#3366CC" CornerRadius="5" Padding="10" Margin="0,0,0,15">
                     <TextBlock Text="Statisztikai kimutatások" FontWeight="Bold" 
                               FontSize="20" Foreground="White" HorizontalAlignment="Center"/>
                 </Border>
 
-                <!-- Alap statisztikák -->
                 <TextBlock Text="Összesített adatok" Style="{StaticResource HeaderStyle}"/>
                 <Border Background="#F0F0F0" CornerRadius="5" Padding="10" Margin="0,0,0,10">
                     <Grid>
@@ -50,7 +48,6 @@
                     </Grid>
                 </Border>
 
-                <!-- Műfaj statisztikák -->
                 <TextBlock Text="Műfaj szerinti eloszlás" Style="{StaticResource HeaderStyle}"/>
                 <Border Background="#F0F0F0" CornerRadius="5" Padding="10" Margin="0,0,0,10">
                     <StackPanel>
@@ -67,7 +64,6 @@
                     </StackPanel>
                 </Border>
 
-                <!-- Szerző statisztikák -->
                 <TextBlock Text="Szerző/rendező szerinti eloszlás" Style="{StaticResource HeaderStyle}"/>
                 <Border Background="#F0F0F0" CornerRadius="5" Padding="10" Margin="0,0,0,10">
                     <StackPanel>
@@ -84,7 +80,6 @@
                     </StackPanel>
                 </Border>
 
-                <!-- Év statisztikák -->
                 <TextBlock Text="Év szerinti eloszlás" Style="{StaticResource HeaderStyle}"/>
                 <Border Background="#F0F0F0" CornerRadius="5" Padding="10" Margin="0,0,0,10">
                     <StackPanel>

@@ -33,31 +33,19 @@
     <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Cím felirat -->
             <RowDefinition Height="Auto"/>
-            <!-- Cím mező -->
             <RowDefinition Height="Auto"/>
-            <!-- Típus felirat -->
             <RowDefinition Height="Auto"/>
-            <!-- Típus mező -->
             <RowDefinition Height="Auto"/>
-            <!-- Szerző/Rendező felirat -->
             <RowDefinition Height="Auto"/>
-            <!-- Szerző/Rendező mező -->
             <RowDefinition Height="Auto"/>
-            <!-- Év felirat -->
             <RowDefinition Height="Auto"/>
-            <!-- Év mező -->
             <RowDefinition Height="Auto"/>
-            <!-- Műfaj felirat -->
             <RowDefinition Height="Auto"/>
-            <!-- Műfaj mező -->
             <RowDefinition Height="Auto"/>
-            <!-- Megnézve/Kiolvasva jelölőnégyzet -->
             <RowDefinition Height="*"/>
-            <!-- Rugalmas tér -->
             <RowDefinition Height="Auto"/>
-            <!-- Gombok sora -->
+            
         </Grid.RowDefinitions>
 
         <TextBlock Text="Cím:" Grid.Row="0"/>

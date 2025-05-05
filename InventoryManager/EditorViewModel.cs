@@ -12,9 +12,9 @@ namespace InventoryManager
 
         public List<ItemType> ItemTypes { get; } = new List<ItemType>((ItemType[])Enum.GetValues(typeof(ItemType)));
 
-        // Évlista (pl. 1950-től idénig, csökkenő sorrendben)
+        
         public List<int> Years { get; }
-        // Fix műfajlista
+        
         public List<string> Genres { get; } = new List<string>
     {
         "Regény", "Tudományos", "Sci-fi", "Akció", "Vígjáték", "Dráma", "Fantasy", "Történelmi", "Horror", "Dokumentum", "Egyéb"
@@ -43,7 +43,7 @@ namespace InventoryManager
             _saveCallback = saveCallback;
             SaveCommand = new RelayCommand(_ => Save());
 
-            // Évlista generálása
+            
             int thisYear = DateTime.Now.Year;
             Years = Enumerable.Range(1950, thisYear - 1950 + 1).Reverse().ToList();
         }
