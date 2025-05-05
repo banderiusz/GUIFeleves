@@ -1,0 +1,106 @@
+﻿<Window x:Class="InventoryManager.StatsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventoryManager"
+        mc:Ignorable="d"
+        Title="Statisztika" Height="600" Width="800" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <Style x:Key="HeaderStyle" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#3366CC"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0,10,0,5"/>
+        </Style>
+        <Style x:Key="StatTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="5,2,0,2"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Főcím -->
+                <Border Background="#3366CC" CornerRadius="5" Padding="10" Margin="0,0,0,15">
+                    <TextBlock Text="Statisztikai kimutatások" FontWeight="Bold" 
+                              FontSize="20" Foreground="White" HorizontalAlignment="Center"/>
+                </Border>
+
+                <!-- Alap statisztikák -->
+                <TextBlock Text="Összesített adatok" Style="{StaticResource HeaderStyle}"/>
+                <Border Background="#F0F0F0" CornerRadius="5" Padding="10" Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="{Binding TotalCount, StringFormat=Összes elem: {0} db}" Style="{StaticResource StatTextStyle}"/>
+                            <TextBlock Text="{Binding BookCount, StringFormat=Könyvek: {0} db}" Style="{StaticResource StatTextStyle}"/>
+                            <TextBlock Text="{Binding MovieCount, StringFormat=Filmek: {0} db}" Style="{StaticResource StatTextStyle}"/>
+                            <TextBlock Text="{Binding OtherCount, StringFormat=Egyéb: {0} db}" Style="{StaticResource StatTextStyle}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding CompletedItemsCount, StringFormat=Elolvasva/megnézve: {0} db}" Style="{StaticResource StatTextStyle}"/>
+                            <TextBlock Text="{Binding ReadBooksCount, StringFormat=Elolvasott könyvek: {0} db}" Style="{StaticResource StatTextStyle}"/>
+                            <TextBlock Text="{Binding WatchedMoviesCount, StringFormat=Megnézett filmek: {0} db}" Style="{StaticResource StatTextStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Műfaj statisztikák -->
+                <TextBlock Text="Műfaj szerinti eloszlás" Style="{StaticResource HeaderStyle}"/>
+                <Border Background="#F0F0F0" CornerRadius="5" Padding="10" Margin="0,0,0,10">
+                    <StackPanel>
+                        <TextBlock Text="{Binding MostPopularGenre, StringFormat=Legnépszerűbb műfaj: {0}}" 
+                                  Style="{StaticResource StatTextStyle}" FontWeight="Bold"/>
+                        <ListView ItemsSource="{Binding GenreDistribution}" Height="120" Margin="0,5,0,0">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Műfaj" DisplayMemberBinding="{Binding Key}" Width="200"/>
+                                    <GridViewColumn Header="Elemek száma" DisplayMemberBinding="{Binding Value}" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </Border>
+
+                <!-- Szerző statisztikák -->
+                <TextBlock Text="Szerző/rendező szerinti eloszlás" Style="{StaticResource HeaderStyle}"/>
+                <Border Background="#F0F0F0" CornerRadius="5" Padding="10" Margin="0,0,0,10">
+                    <StackPanel>
+                        <TextBlock Text="{Binding MostProductiveAuthor, StringFormat=Legtöbb művel rendelkező: {0}}" 
+                                  Style="{StaticResource StatTextStyle}" FontWeight="Bold"/>
+                        <ListView ItemsSource="{Binding AuthorDistribution}" Height="120" Margin="0,5,0,0">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Szerző/Rendező" DisplayMemberBinding="{Binding Key}" Width="200"/>
+                                    <GridViewColumn Header="Művek száma" DisplayMemberBinding="{Binding Value}" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </Border>
+
+                <!-- Év statisztikák -->
+                <TextBlock Text="Év szerinti eloszlás" Style="{StaticResource HeaderStyle}"/>
+                <Border Background="#F0F0F0" CornerRadius="5" Padding="10" Margin="0,0,0,10">
+                    <StackPanel>
+                        <TextBlock Text="{Binding MostPopularYear, StringFormat=Legtermékenyebb év: {0}}" 
+                                  Style="{StaticResource StatTextStyle}" FontWeight="Bold"/>
+                        <ListView ItemsSource="{Binding YearDistribution}" Height="120" Margin="0,5,0,0">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Év" DisplayMemberBinding="{Binding Key}" Width="100"/>
+                                    <GridViewColumn Header="Elemek száma" DisplayMemberBinding="{Binding Value}" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
